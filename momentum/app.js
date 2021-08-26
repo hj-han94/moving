@@ -1,18 +1,33 @@
-const age =parseInt(prompt("how old are you?"));
+const title = document.querySelector(".title h1")
 
+console.dir(title)
 
-console.log(typeof age);
-console.log(isNaN(age));
-console.log(age);
+const superEventHandler ={
 
+    mouseover :function(){
+        title.innerText="Mouse is here!";
+        title.style.color="#1abc9c";
+    },
 
+    mouseleave :function(){
+        title.innerText="Mouse is gone!";
+        title.style.color="#3498db";
+    },
 
-if(isNaN(age)){
-    console.log("please write number");
-}else if (age>=18 && age<=50){
-    console.log("you can drink");
-}else if( age >50 && age<=80){
-    console.log("you have to exercise");
-}else{
-    console.log("you do whatever you want");
+    windowresize :function(){
+        title.innerText="You just resize!";
+        title.style.color="purple";
+    },
+
+    contextmenu : function(){
+        title.innerText="That was a right click!";
+        title.style.color="tomato";
+    },
+
+   
 }
+
+title.addEventListener("mouseover",superEventHandler.mouseover)
+title.addEventListener("mouseleave",superEventHandler.mouseleave)
+window.addEventListener("contextmenu",superEventHandler.contextmenu)
+window.addEventListener("resize",superEventHandler.windowresize)
